@@ -5,7 +5,7 @@
 
 set -ex
 
-echo alias run="bash ~/dev/pmldeploy/run.sh" >> ~/.bashrc
+echo "alias run=\"bash ~/dev/pmldeploy/run.sh\"" >> ~/.bashrc
 
 mkdir -p ~/dev && cd ~/dev
 
@@ -22,6 +22,10 @@ sudo curl -fsSL https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64
 sudo chmod +x /opt/Anaconda3-2021.11-Linux-x86_64.sh
 
 sudo sh /opt/Anaconda3-2021.11-Linux-x86_64.sh -b -p /opt/anaconda
+
+alias "conda=/opt/anaconda/bin/conda" >> ~/.bashrc
+
+alias conda=/opt/anaconda/bin/conda
 
 conda env create -f ~/dev/pathml/pathml-environment.yml
 
