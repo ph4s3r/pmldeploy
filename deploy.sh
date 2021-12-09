@@ -5,7 +5,7 @@
 
 set -ex
 
-echo "alias run="bash ~/dev/pmldeploy/run.sh"" >> ~/.bashrc
+echo alias run="bash ~/dev/pmldeploy/run.sh" >> ~/.bashrc
 
 mkdir -p ~/dev && cd ~/dev
 
