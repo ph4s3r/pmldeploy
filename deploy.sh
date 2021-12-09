@@ -5,8 +5,7 @@
 
 set -ex
 
-lsb_release -a
-python3 --version
+echo "alias run="bash ~/dev/pmldeploy/run.sh"" >> ~/.bashrc
 
 mkdir -p ~/dev && cd ~/dev
 
@@ -24,18 +23,13 @@ sudo chmod +x /opt/Anaconda3-2021.11-Linux-x86_64.sh
 
 sudo sh /opt/Anaconda3-2021.11-Linux-x86_64.sh -b -p /opt/anaconda
 
-# continue with deploy2.bash
-#!/bin/bash
-
-set -ex
-
 conda env create -f ~/dev/pathml/pathml-environment.yml
 
 conda init bash
 
 # Shell needs to be restarted
 
-exec "$ScriptLoc"
+source ~/.profile
 
 conda activate pathml-env
 
@@ -44,7 +38,6 @@ conda config --set auto_activate_base false
 echo "conda activate pathml-env" >> ~/.bashrc
 
 conda install -y -c conda-forge pyvips
-
 conda install -y -c conda-forge notebook
 
 # pathml setup
