@@ -15,7 +15,7 @@ git clone https://github.com/markowetzlab/pathml-tutorial
 # Installing Anaconda to /opt/anaconda
 
 sudo apt-get update
-sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 tuptime
+sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 tuptime tree mlocate
 
 sudo curl -fsSL https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -o /opt/Anaconda3-2021.11-Linux-x86_64.sh
 
@@ -31,9 +31,11 @@ conda env create -f ~/dev/pathml/pathml-environment.yml
 
 conda init bash
 
-# Shell needs to be restarted
+# need to restart bash
 
-source ~/.profile
+ScriptLoc=$(readlink -f "$0")
+exec "$ScriptLoc"
+
 
 conda activate pathml-env
 
