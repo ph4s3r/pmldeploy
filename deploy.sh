@@ -21,7 +21,7 @@ sudo curl -fsSL https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64
 
 sudo chmod +x /opt/Anaconda3-2021.11-Linux-x86_64.sh
 
-sudo sh /opt/Anaconda3-2021.11-Linux-x86_64.sh -b -p /opt/anaconda
+sudo sh /opt/Anaconda3-2021.11-Linux-x86_64.sh -b -p /opt/anaconda || true
 
 alias "conda=/opt/anaconda/bin/conda" >> ~/.bashrc
 
@@ -34,6 +34,9 @@ conda init bash
 # need to restart bash
 
 ScriptLoc=$(readlink -f "$0")
+
+chmod 700 $ScriptLoc
+
 exec "$ScriptLoc"
 
 

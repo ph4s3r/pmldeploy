@@ -14,7 +14,7 @@ fi
 
 
 # Copy the notebook link with the token, combine with external ip:
-echo "IP for public access:
+echo "IP for public access:"
 echo http://$(curl -s icanhazip.com.):$(jupyter notebook list | grep http | awk '{print $1}' | awk '{split($0,a,":"); print a[3]}')
 echo "IP for local access:"
 echo http://127.0.0.1:$(jupyter notebook list | grep http | awk '{print $1}' | awk '{split($0,a,":"); print a[3]}')
