@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Hi, please enter the external ip address to use (yes it is needed..) :"
 
