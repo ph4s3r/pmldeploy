@@ -35,6 +35,6 @@ sudo systemctl enable vsftpd
 
 sudo systemctl restart vsftpd
 
-echo "Here is a manual on cmd line ftp client : https://www.howtogeek.com/412626/how-to-use-the-ftp-command-on-linux/ "
+echo "connect to the ftp server and download directories with wget -r -nH --cut-dirs=1 -nc ftp://gomboc:passwordhere@uvm.westeurope.cloudapp.azure.com/dev/pml_data/"
 
 sudo systemctl status vsftpd
