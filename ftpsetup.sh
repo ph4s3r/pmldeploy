@@ -31,4 +31,9 @@ else
   sudo service vsftpd start
   sudo service vsftpd status
 fi
-printf "${GREEN}connect to the ftp server and download directories with wget -r -nH --cut-dirs=1 -nc ftp://gomboc:passwordhere@uvm.westeurope.cloudapp.azure.com/dev/pml_data"
+printf "${GREEN}connect to the ftp server and download directories with
+${RED}wget -r -nH --cut-dirs=1 -nc ftp://gomboc:passwordhere@uvm.westeurope.cloudapp.azure.com/dev/pml_data
+${GREEN}where
+-nc: ignoring files that already exist at destination (even if the file is different)
+-nH: Is for disabling creation of directory having name same as URL i.e. abc.xyz.com
+--cut-dirs: Is for ignoring number of parent directories. The value of this option will differ for your command."
