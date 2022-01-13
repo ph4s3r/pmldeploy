@@ -5,10 +5,6 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-echo -n "Hi, please enter the external ip address to use (yes it is needed..) :"
-
-read ip
-
 echo "Working... ${RED}Please dont forget to open ports 20,21 and 30000->30100 for passive mode${NC}"
 sudo apt install -y -qq vsftpd
 # Making a backup of original config
@@ -17,7 +13,7 @@ sudo cp /etc/vsftpd.conf  /etc/vsftpd.conf_default
 sudo echo "
 seccomp_sandbox=NO
 allow_writeable_chroot=YES
-pasv_address=$ip
+pasv_address=$(curl -s icanhazip.com.)
 pasv_enable=Yes
 pasv_min_port=30000
 pasv_max_port=30100
