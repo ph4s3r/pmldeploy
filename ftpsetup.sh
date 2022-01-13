@@ -1,8 +1,10 @@
 #!/bin/bash
 
-set -ex
+echo "Hi, please enter the external ip address to use (yes it is needed..) :"
 
-# Firing up an ftp server
+read ip
+
+echo "Working... Please don`t forget to open ports 20,21 and 30000->30100 for passive mode"
 
 sudo apt install -y vsftpd
 
@@ -10,20 +12,20 @@ sudo apt install -y vsftpd
 
 sudo cp /etc/vsftpd.conf  /etc/vsftpd.conf_default
 
-# Add settings to /etc/vsftpd.conf
-
-# Need to change the IP for pasv_address!!!
+vim /etc/vsftpd.conf
 
 seccomp_sandbox=NO
 allow_writeable_chroot=YES
-pasv_address=20.79.248.253
+pasv_address=$ip
 pasv_enable=Yes
 pasv_min_port=30000
 pasv_max_port=30100
 port_enable=YES
 write_enable=YES
+listen_ipv6=NO
+listen=YES
 
-# Enable ports 20,21 and 30000->30100 on Azure
+:wq
 
 # Launch and enable
 
@@ -33,4 +35,6 @@ sudo systemctl enable vsftpd
 
 sudo systemctl restart vsftpd
 
-# Copy files into ~/dev/pathml-tutorial/wsi_data
+echo "Here is a manual on cmd line ftp client : https://www.howtogeek.com/412626/how-to-use-the-ftp-command-on-linux/ "
+
+sudo systemctl status vsftpd
