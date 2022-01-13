@@ -8,7 +8,7 @@ if pgrep "jupyter" > /dev/null
 then
     	echo "Jupyter notebook is already running"
 else
-	jupyter notebook --ip=0.0.0.0 --port=8888 --notebook-dir ~/dev/pathml-tutorial &
+	jupyter notebook --ip=0.0.0.0 --port=8888 --notebook-dir ~/dev/pml-echino &
 	sleep 5
 fi
 
